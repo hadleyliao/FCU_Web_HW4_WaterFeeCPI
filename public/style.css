@@ -1,0 +1,335 @@
+/* ===============================
+   全域設定（背景、排版、字型等）
+   =============================== */
+body {
+    background-image: url('images/background01.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #f8f9fa;
+    background-attachment: fixed;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===============================
+   標題區（LOGO與主標題）
+   =============================== */
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.title-wrapper img {
+    width: 220px;
+    height: 220px;
+    vertical-align: middle;
+}
+
+.title-wrapper h1 {
+    font-size: 2.6rem;
+    color: rgb(4, 53, 64);
+    font-weight: bold;
+}
+
+/* ===============================
+   表單區塊外層（查詢/新增）
+   =============================== */
+.center-form-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 80px; /* 兩個 section 間距 */
+}
+
+/* ===============================
+   表單區塊 section 樣式
+   =============================== */
+.section {
+    background: transparent;
+    border-radius: 30px;
+    border: 3px solid #d8d7d7;
+    padding: 30px 20px 24px 20px;
+    margin-bottom: 0;
+    width: 380px;
+    min-width: 300px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section h2 {
+    margin-bottom: 36px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* ===============================
+   表單欄位（每一行）
+   =============================== */
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end; /* 右對齊 */
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 18px;
+}
+
+.form-row label {
+    flex: 0 0 90px;
+    text-align: right;
+    margin-right: 8px;
+    font-size: 1.05em;
+    letter-spacing: 1px;
+}
+
+.form-row input,
+.form-row select {
+    width: 160px;
+    height: 42px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0;
+    display: block;
+}
+
+/* ===============================
+   按鈕群組（橫向/直向）
+   =============================== */
+.button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 18px;
+    gap: 18px;
+}
+
+.button-group button {
+    width: 160px;
+    height: 42px;
+    background: #f6f8fa;
+    border: 1px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.button-group button:hover {
+    background: #e0f4ff;
+}
+
+/* 查詢區塊的兩個按鈕直向排列 */
+.search-btn-vertical {
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: flex-end !important; /* 保持右對齊 */
+}
+
+.search-btn-vertical button {
+    width: 160px !important;
+    height: 42px !important;
+    font-size: 16px;
+}
+
+/* ===============================
+   表格外層容器（置中與橫向捲動）
+   =============================== */
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow-x: auto; /* 表格寬於螢幕時可橫向捲動 */
+}
+
+/* ===============================
+   查詢結果表格樣式
+   =============================== */
+#resultTable {
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 840px; /* section380*2 + gap80 */
+    width: auto; /* 讓內容自動展開 */
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    border: 3px solid #d8d7d7;
+    overflow: hidden;
+    font-size: 1.08rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: box-shadow 0.2s;
+}
+
+#resultTable th {
+    /*background: rgba(234,246,255,0.7);*/
+    color: #5cb9e4;
+    font-weight: bold;
+    padding: 12px 14px;
+    border-bottom: 3px solid #d8d7d7;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#resultTable td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #ebeef0;
+    text-align: center;
+    color: #333;
+    background: transparent;
+    white-space: nowrap;
+}
+
+#resultTable tr:last-child td {
+    border-bottom: none;
+}
+
+#resultTable tbody tr:hover {
+    background: #a5d9e6;
+    transition: background 0.2s;
+}
+
+/* 查詢結果為空時的樣式 */
+.empty-row {
+    color: #888;
+    font-style: italic;
+    background: transparent;
+}
+
+/* ===============================
+   sweetalert2 彈窗樣式
+   =============================== */
+.swal2-popup,
+.swal2-waterdrop {
+    font-size: 1.1rem;
+    background: #bce6ff;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px #b3e0ff55;
+    width: 650px;
+    height: 650px;
+    min-width: 340px;
+    min-height: 340px;
+    max-width: 150vw;
+    max-height: 150vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* ===============================
+   響應式設計（手機、平板、桌機）
+   =============================== */
+@media (max-width: 400px) {
+    /* 手機：彈窗與表格縮小 */
+    .swal2-popup,
+    .swal2-waterdrop {
+        width: 90vw !important;
+        height: 90vw !important;
+    }
+
+    #resultTable {
+        width: 98vw;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 900px) {
+    /* 平板：彈窗與表格適中 */
+    .swal2-popup,
+    .swal2-waterdrop {
+        width: 60vw !important;
+        height: 60vw !important;
+        min-width: 300px;
+        min-height: 300px;
+    }
+
+    #resultTable {
+        width: 90vw;
+        min-width: 0;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 901px) {
+    /* 桌機：表格維持大寬度 */
+    #resultTable {
+        min-width: 840px;
+        width: auto;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    /* 手機/平板：表單與表格縱向排列 */
+    .center-form-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .section {
+        width: 90vw;
+        min-width: 0;
+        height: auto;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    #resultTable {
+        min-width: 550px;
+    }
+}
+
+/* ===============================
+   圖表區域樣式
+   =============================== */
+.chart-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 840px;
+    max-width: 100vw;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.title-wrapper h1,
+.section h2,
+.chart-title-custom {
+    color: #6b6b6b !important;
+}
