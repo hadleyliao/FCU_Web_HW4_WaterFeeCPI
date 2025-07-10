@@ -16,8 +16,12 @@ const db = new sqlite3.Database(dbPath, (err) => {
 // 初始化資料表
 const initDB = () => {
   db.run(`
+<<<<<<< HEAD
     CREATE TABLE IF NOT EXISTS prices
     (
+=======
+    CREATE TABLE IF NOT EXISTS prices (
+>>>>>>> 5c2e54f2386aec10f88b5a113da76b0ec52b40d5
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       date TEXT NOT NULL,
       name TEXT NOT NULL,
